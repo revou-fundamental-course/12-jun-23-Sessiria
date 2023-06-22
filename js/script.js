@@ -66,6 +66,8 @@ convert = () => {
 }
 
 reset = () => {
+    cel = 0;
+    fah = 0;
     input.value = "";
     output.value = "";
     calculate.value = "";
