@@ -44,10 +44,12 @@ convert = () => {
         }else{
             // jika berisi nilai 1+
             if(reversed){
+                fah = input.value;
                 cel = fahToCel(input.value);
                 output.value = cel.toFixed(2);
                 calculate.value = "(" + input.value + "°F - 32) * 5 / 9 = " +  output.value + "°C";
             }else{
+                cel = input.value;
                 fah = celToFah(input.value);
                 output.value = fah.toFixed(2);
                 calculate.value = input.value + "°C * (9/5) + 32 = " +  output.value +"°F";
@@ -70,9 +72,11 @@ reset = () => {
 }
 
 reverse = () => {
-    reversed = !reversed;
-
-    if(input){
+    if(isNaN(input.value)){
+        alert('Masukkan nilai di kolom input pertama!')
+        
+    }else{
+        reversed = !reversed;
         if(reversed){
             linput.innerHTML = 'Fahrenheit (°F):';
             loutput.innerHTML = 'Celsius (°C):';
@@ -82,17 +86,15 @@ reverse = () => {
         }
     
         if(reversed){
-            cel = fahToCel(input.value);
-            output.value = cel.toFixed(2);
+            input.value = fah;
+            output.value = cel;
             calculate.value = "(" + input.value + "°F - 32) * 5 / 9 = " +  output.value + "°C";
         }else{
-            fah = celToFah(input.value);
-            output.value = fah.toFixed(2);
+            input.value = cel;
+            output.value = fah;
             calculate.value = input.value + "°C * (9/5) + 32 = " +  output.value +"°F";
         };
-    }else{
         
-        alert('Masukkan nilai di kolom input pertama!')
     
     }
     
